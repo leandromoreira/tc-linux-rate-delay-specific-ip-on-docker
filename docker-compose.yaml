@@ -1,0 +1,29 @@
+version: "3.0"
+services:
+  client:
+    container_name: client
+    build: .
+    tty: true
+    cap_add:
+    - NET_ADMIN
+    volumes:
+      - ".:/work/"
+    working_dir: "/work"
+  server1:
+    container_name: server1
+    build: .
+    tty: true
+    cap_add:
+    - NET_ADMIN
+    volumes:
+      - ".:/work/"
+    working_dir: "/work"
+  server2:
+    container_name: server2
+    build: .
+    tty: true
+    cap_add:
+    - NET_ADMIN
+    volumes:
+      - ".:/work/"
+    working_dir: "/work"

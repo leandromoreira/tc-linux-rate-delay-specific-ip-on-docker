@@ -1,0 +1,9 @@
+docker-compose up
+docker exec server1 iperf3 -s -p 8080
+docker exec server2 iperf3 -s -p 8080
+docker exec client bash
+./tc.sh
+iperf3 -c server1 -p 8080 -t 10
+iperf3 -c server2 -p 8080 -t 10
+tc qdisc del dev eth0 root
+iperf3 -c server1 -p 8080 -t 10
